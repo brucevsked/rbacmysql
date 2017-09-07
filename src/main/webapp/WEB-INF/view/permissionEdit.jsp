@@ -18,13 +18,13 @@ request.setAttribute("basePath", basePath);
   <body>
 	<div class="easyui-panel" title="权限信息修改">
 		<form id="fm" method="post" action="${basePath }permissionEditProc">
-        <input type="hidden" name="spId" id="spId" value="${data.SPID }" />
+        <input type="hidden" name="spId" id="spId" value="${data.spId }" />
 		<br/>
 			<div style="margin-bottom:20px;margin-left:2%">
-     <input class="easyui-textbox" type="text" name="spName" id="spName" value="${data.SPNAME }" label="权限表达式:" data-options="required:true,missingMessage:'请输入权限表达式'" style="width:30%" />
+     <input class="easyui-textbox" type="text" name="spName" id="spName" value="${data.spName }" label="权限表达式:" data-options="required:true,missingMessage:'请输入权限表达式'" style="width:30%" />
 			</div>
 			<div style="margin-bottom:20px;margin-left:2%">
-     <input class="easyui-textbox" type="text" name="spNick" id="spNick" value="${data.SPNICK }" label="权限名:" data-options="required:true,missingMessage:'请输入权限名'" style="width:30%" />
+     <input class="easyui-textbox" type="text" name="spNick" id="spNick" value="${data.spNick }" label="权限名:" data-options="required:true,missingMessage:'请输入权限名'" style="width:30%" />
 			</div>
 <div style="margin-bottom:20px;margin-left:15%">
     <button type="button" class="easyui-linkbutton" onclick="submitForm();" id="editBt">修改</button> 
