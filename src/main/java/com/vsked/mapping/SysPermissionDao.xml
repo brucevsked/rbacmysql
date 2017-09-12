@@ -21,24 +21,24 @@
 	<insert id="sysPermissionAdd" >
 	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
 	  insert into sysPermissionT(spId,spName,spNick) 
-	  VALUES(#{myuuid,jdbcType=NVARCHAR},#{spName,jdbcType=NVARCHAR},#{spNick,jdbcType=NVARCHAR})
+	  VALUES(#{myuuid,jdbcType=VARCHAR},#{spName,jdbcType=VARCHAR},#{spNick,jdbcType=VARCHAR})
 	</insert>
 	
 	<update id="sysPermissionEdit">
-	  update sysPermissionT set spName=#{spName,jdbcType=NVARCHAR},spNick=#{spNick,jdbcType=NVARCHAR} where spId=#{spId,jdbcType=NVARCHAR}
+	  update sysPermissionT set spName=#{spName,jdbcType=VARCHAR},spNick=#{spNick,jdbcType=VARCHAR} where spId=#{spId,jdbcType=VARCHAR}
 	</update>
 	
     <delete id="sysPermissionDel">
-      delete from sysPermissionT where spId=#{spId,jdbcType=NVARCHAR}
+      delete from sysPermissionT where spId=#{spId,jdbcType=VARCHAR}
     </delete>
     
 	<sql id="myWhere">
 		<where>
 			<if test="spName !=null and spName != '' ">
-				and spName like '%'||#{spName,jdbcType=NVARCHAR}||'%' 
+				and spName like '%'||#{spName,jdbcType=VARCHAR}||'%' 
 			</if>
 			<if test="spNick !=null and spNick != '' ">
-				and spNick like '%'||#{spNick,jdbcType=NVARCHAR}||'%' 
+				and spNick like '%'||#{spNick,jdbcType=VARCHAR}||'%' 
 			</if>
 		</where>
 	</sql>

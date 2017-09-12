@@ -15,33 +15,33 @@
 	</select>
 	
 	<select id="getCarrierByCarrierId" resultType="java.util.Map">
-		select * from carrierT where carrierId=#{carrierId,jdbcType=NVARCHAR}
+		select * from carrierT where carrierId=#{carrierId,jdbcType=VARCHAR}
 	</select>
 
 	<insert id="carrierAdd" >
 	  <selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey> 
 	  insert into carrierT(carrierId,carrierName,carrierNick,carrierShortName,officialWebSite,hotline) 
-	  values(#{myuuid,jdbcType=NVARCHAR},#{carrierName,jdbcType=NVARCHAR},#{carrierNick,jdbcType=NVARCHAR},
-	  #{carrierShortName,jdbcType=NVARCHAR},#{officialWebSite,jdbcType=NVARCHAR},#{hotline,jdbcType=NVARCHAR}) 
+	  values(#{myuuid,jdbcType=VARCHAR},#{carrierName,jdbcType=VARCHAR},#{carrierNick,jdbcType=VARCHAR},
+	  #{carrierShortName,jdbcType=VARCHAR},#{officialWebSite,jdbcType=VARCHAR},#{hotline,jdbcType=VARCHAR}) 
 	</insert>
 	
 	<update id="carrierEdit">
-	  update carrierT set carrierName=#{carrierName,jdbcType=NVARCHAR} ,carrierNick=#{carrierNick,jdbcType=NVARCHAR} , 
-	  carrierShortName=#{carrierShortName,jdbcType=NVARCHAR},officialWebSite=#{officialWebSite,jdbcType=NVARCHAR} ,
-	  hotline=#{hotline,jdbcType=NVARCHAR} 
-	  where carrierId=#{carrierId,jdbcType=NVARCHAR}
+	  update carrierT set carrierName=#{carrierName,jdbcType=VARCHAR} ,carrierNick=#{carrierNick,jdbcType=VARCHAR} , 
+	  carrierShortName=#{carrierShortName,jdbcType=VARCHAR},officialWebSite=#{officialWebSite,jdbcType=VARCHAR} ,
+	  hotline=#{hotline,jdbcType=VARCHAR} 
+	  where carrierId=#{carrierId,jdbcType=VARCHAR}
 	</update>
 	
     <sql id="myWhere">
     <where>
 		<if test="carrierName !=null and carrierName != '' ">
-		and carrierName like '%'||#{carrierName,jdbcType=NVARCHAR}||'%' 
+		and carrierName like '%'||#{carrierName,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="carrierNick !=null and carrierNick != '' ">
-		and carrierNick like '%'||#{carrierNick,jdbcType=NVARCHAR}||'%' 
+		and carrierNick like '%'||#{carrierNick,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="carrierShortName !=null and carrierShortName != '' ">
-		and carrierShortName like '%'||#{carrierShortName,jdbcType=NVARCHAR}||'%' 
+		and carrierShortName like '%'||#{carrierShortName,jdbcType=VARCHAR}||'%' 
 		</if>
     </where>
     </sql>

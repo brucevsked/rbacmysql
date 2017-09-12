@@ -15,35 +15,35 @@
 	</select>
 	
 	<select id="getSysDictionaryBySdtId" resultType="java.util.Map">
-    select * from sysDictionaryT where sdtId=#{sdtId,jdbcType=NVARCHAR}
+    select * from sysDictionaryT where sdtId=#{sdtId,jdbcType=VARCHAR}
 	</select>
 	
 	<select id="getSysDictionaryBySdId" resultType="java.util.Map">
-		select * from sysDictionaryT where sdId=#{sdId,jdbcType=NVARCHAR}
+		select * from sysDictionaryT where sdId=#{sdId,jdbcType=VARCHAR}
 	</select>
 	
 	<insert id="sysDictionaryAdd" >
 	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
 	  insert into sysDictionaryT(sdId,sdName,sdValue,sdSort,sdtId) 
-	  VALUES(#{myuuid,jdbcType=NVARCHAR},#{sdName,jdbcType=NVARCHAR},#{sdValue,jdbcType=NVARCHAR},
-	  #{sdSort,jdbcType=INTEGER},#{sdtId,jdbcType=NVARCHAR})
+	  VALUES(#{myuuid,jdbcType=VARCHAR},#{sdName,jdbcType=VARCHAR},#{sdValue,jdbcType=VARCHAR},
+	  #{sdSort,jdbcType=INTEGER},#{sdtId,jdbcType=VARCHAR})
 	</insert>
 	
 	<update id="sysDictionaryEdit">
-	update sysDictionaryT set sdName=#{sdName,jdbcType=NVARCHAR},sdValue=#{sdValue,jdbcType=NVARCHAR},
-	sdSort=#{sdSort},sdtId=#{sdtId,jdbcType=NVARCHAR} where sdId=#{sdId,jdbcType=NVARCHAR} 	 
+	update sysDictionaryT set sdName=#{sdName,jdbcType=VARCHAR},sdValue=#{sdValue,jdbcType=VARCHAR},
+	sdSort=#{sdSort},sdtId=#{sdtId,jdbcType=VARCHAR} where sdId=#{sdId,jdbcType=VARCHAR} 	 
 	</update>
 	
     <sql id="myWhere">
     <where>
 		<if test="sdName !=null and sdName != '' ">
-		and a1.sdName like '%'||#{sdName,jdbcType=NVARCHAR}||'%' 
+		and a1.sdName like '%'||#{sdName,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="sdValue !=null and sdValue != '' ">
-		and a1.sdValue like '%'||#{sdValue,jdbcType=NVARCHAR}||'%' 
+		and a1.sdValue like '%'||#{sdValue,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="sdtName !=null and sdtName != '' ">
-		and b1.sdtName like '%'||#{sdtName,jdbcType=NVARCHAR}||'%' 
+		and b1.sdtName like '%'||#{sdtName,jdbcType=VARCHAR}||'%' 
 		</if>
     </where>
     </sql>

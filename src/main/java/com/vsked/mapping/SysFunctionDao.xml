@@ -36,58 +36,58 @@
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			#{myuuid,jdbcType=NVARCHAR},
+			#{myuuid,jdbcType=VARCHAR},
 			<if test="sfValue != null">
-				#{sfValue,jdbcType=NVARCHAR},
+				#{sfValue,jdbcType=VARCHAR},
 			</if>
 			<if test="spId != null">
-				#{spId,jdbcType=NVARCHAR},
+				#{spId,jdbcType=VARCHAR},
 			</if>
 			<if test="srId != null">
-				#{srId,jdbcType=NVARCHAR},
+				#{srId,jdbcType=VARCHAR},
 			</if>
 			<if test="sfType != null">
-				#{sfType,jdbcType=NVARCHAR},
+				#{sfType,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
 
 	<delete id="sysFunctionDel">
-		delete from sysFunctionT where sfId=#{sfId,jdbcType=NVARCHAR}
+		delete from sysFunctionT where sfId=#{sfId,jdbcType=VARCHAR}
 	</delete>
 
 	<update id="sysFunctionEdit">
 		update sysFunctionT
 		<set>
 			<if test="sfValue != null">
-				sfValue= #{sfValue,jdbcType=NVARCHAR},
+				sfValue= #{sfValue,jdbcType=VARCHAR},
 			</if>
 			
 			<if test="spId != null">
-				spId=#{spId,jdbcType=NVARCHAR},
+				spId=#{spId,jdbcType=VARCHAR},
 			</if>
 			
 			<if test="srId != null">
-				srId=#{srId,jdbcType=NVARCHAR},
+				srId=#{srId,jdbcType=VARCHAR},
 			</if>
 				
 			<if test="sfType != null">
-				sfType=#{sfType,jdbcType=NVARCHAR},
+				sfType=#{sfType,jdbcType=VARCHAR},
 			</if>
 		</set>
-		where sfId=#{sfId,jdbcType=NVARCHAR}
+		where sfId=#{sfId,jdbcType=VARCHAR}
 	</update>
 
 	<sql id="myWhere">
 		<where>
 			<if test="sfId != null and sfId != ''">
-				and sfId = #{sfId,jdbcType=NVARCHAR}
+				and sfId = #{sfId,jdbcType=VARCHAR}
 			</if>
 			<if test="sfValue != null and sfValue != ''">
-				and sfValue like '%'||#{sfValue,jdbcType=NVARCHAR}||'%' 
+				and sfValue like '%'||#{sfValue,jdbcType=VARCHAR}||'%' 
 			</if>
 			<if test="spNick != null and spNick != ''">
-				and spNick like '%'||#{spNick,jdbcType=NVARCHAR}||'%' 
+				and spNick like '%'||#{spNick,jdbcType=VARCHAR}||'%' 
 			</if>
 		</where>
 	</sql>

@@ -20,17 +20,17 @@
 	
 	<insert id="sysDictionaryTypeAdd" >
 	  <selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey> 
-	  insert into sysDictionaryTypeT(sdtId,sdtName) VALUES(#{myuuid,jdbcType=NVARCHAR},#{sdtName,jdbcType=NVARCHAR})
+	  insert into sysDictionaryTypeT(sdtId,sdtName) VALUES(#{myuuid,jdbcType=VARCHAR},#{sdtName,jdbcType=VARCHAR})
 	</insert>
 	
 	<update id="sysDictionaryTypeEdit">
-	  update sysDictionaryTypeT set sdtName=#{sdtName,jdbcType=NVARCHAR} where sdtId=#{sdtId,jdbcType=NVARCHAR}
+	  update sysDictionaryTypeT set sdtName=#{sdtName,jdbcType=VARCHAR} where sdtId=#{sdtId,jdbcType=VARCHAR}
 	</update>
 	
 	<sql id="myWhere">
 		<where>
 			<if test="sdtName !=null and sdtName != '' ">
-				and sdtName like  '%'||#{sdtName,jdbcType=NVARCHAR}||'%' 
+				and sdtName like  '%'||#{sdtName,jdbcType=VARCHAR}||'%' 
 			</if>
 		</where>
 	</sql>

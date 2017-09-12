@@ -65,28 +65,28 @@ where spId=(select spId from sysPermissionT where spName=#{spName}))
 	</select>
 
 	<delete id="sysUserRoleDelBySrId">
-		delete from sysUserRoleT where srId=#{srId,jdbcType=NVARCHAR}
+		delete from sysUserRoleT where srId=#{srId,jdbcType=VARCHAR}
 	</delete>
 
 	<delete id="sysUserRoleDelBySuId">
-		delete from sysUserRoleT where suId=#{suId,jdbcType=NVARCHAR}
+		delete from sysUserRoleT where suId=#{suId,jdbcType=VARCHAR}
 	</delete>
 
 	<insert id="sysUserRoleAdd">
 		insert into sysUserRoleT(suId,srId) 
-		VALUES(#{suId,jdbcType=NVARCHAR},#{srId,jdbcType=NVARCHAR})
+		VALUES(#{suId,jdbcType=VARCHAR},#{srId,jdbcType=VARCHAR})
 	</insert>
 	
     <sql id="myWhere">
     <where>
 		<if test="suName !=null and suName != '' ">
-		and suName like '%'||#{suName,jdbcType=NVARCHAR}||'%' 
+		and suName like '%'||#{suName,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="suNick !=null and suNick != '' ">
-		and suNick like '%'||#{suNick,jdbcType=NVARCHAR}||'%' 
+		and suNick like '%'||#{suNick,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="srName !=null and srName != '' ">
-		and srName like '%'||#{srName,jdbcType=NVARCHAR}||'%' 
+		and srName like '%'||#{srName,jdbcType=VARCHAR}||'%' 
 		</if>
     </where>
     </sql>

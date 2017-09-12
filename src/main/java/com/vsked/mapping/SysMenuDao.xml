@@ -14,14 +14,14 @@
 	</select>
 	
 	<select id="getSysMenuBySmId" resultType="java.util.Map">
-		select * from sysMenuT where smId=#{smId,jdbcType=NVARCHAR}
+		select * from sysMenuT where smId=#{smId,jdbcType=VARCHAR}
 	</select>
 	
 	<select id="getSysUserMenuBySuId" resultType="java.util.Map">
 select * from sysMenuT where smId in(
     select distinct smId from sysRoleMenuT 
     where srId in(
-    select srId from sysUserRoleT where suId=#{suId,jdbcType=NVARCHAR}
+    select srId from sysUserRoleT where suId=#{suId,jdbcType=VARCHAR}
     )
 ) order by smAddTime
 	</select>
@@ -29,29 +29,29 @@ select * from sysMenuT where smId in(
 	<insert id="sysMenuAdd" >
 	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
 	  insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) 
-	  VALUES(#{myuuid,jdbcType=NVARCHAR},#{smName,jdbcType=NVARCHAR},#{smHref,jdbcType=NVARCHAR},
-	  #{smClick,jdbcType=NVARCHAR},#{smClass,jdbcType=NVARCHAR},#{smDataOptions,jdbcType=NVARCHAR},#{parentSmId,jdbcType=NVARCHAR})
+	  VALUES(#{myuuid,jdbcType=VARCHAR},#{smName,jdbcType=VARCHAR},#{smHref,jdbcType=VARCHAR},
+	  #{smClick,jdbcType=VARCHAR},#{smClass,jdbcType=VARCHAR},#{smDataOptions,jdbcType=VARCHAR},#{parentSmId,jdbcType=VARCHAR})
 	</insert>
 	
 	<update id="sysMenuEdit">
-	  update sysMenuT set smName=#{smName,jdbcType=NVARCHAR},smHref=#{smHref,jdbcType=NVARCHAR},
-	  smClick=#{smClick,jdbcType=NVARCHAR},smClass=#{smClass,jdbcType=NVARCHAR},smDataOptions=#{smDataOptions,jdbcType=NVARCHAR},
-	  parentSmId=#{parentSmId,jdbcType=NVARCHAR} where smId=#{smId,jdbcType=NVARCHAR} 
+	  update sysMenuT set smName=#{smName,jdbcType=VARCHAR},smHref=#{smHref,jdbcType=VARCHAR},
+	  smClick=#{smClick,jdbcType=VARCHAR},smClass=#{smClass,jdbcType=VARCHAR},smDataOptions=#{smDataOptions,jdbcType=VARCHAR},
+	  parentSmId=#{parentSmId,jdbcType=VARCHAR} where smId=#{smId,jdbcType=VARCHAR} 
 	</update>
 	
     <sql id="myWhere">
     <where>
 		<if test="smName !=null and smName != '' ">
-		and a1.smName like '%'||#{smName,jdbcType=NVARCHAR}||'%' 
+		and a1.smName like '%'||#{smName,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="smHref !=null and smHref != '' ">
-		and a1.smHref like '%'||#{smHref,jdbcType=NVARCHAR}||'%' 
+		and a1.smHref like '%'||#{smHref,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="smClick !=null and smClick != '' ">
-		and a1.smClick like '%'||#{smClick,jdbcType=NVARCHAR}||'%' 
+		and a1.smClick like '%'||#{smClick,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="smName1 !=null and smName1 != '' ">
-		and b1.smName like '%'||#{smName1,jdbcType=NVARCHAR}||'%' 
+		and b1.smName like '%'||#{smName1,jdbcType=VARCHAR}||'%' 
 		</if>
     </where>
     </sql>

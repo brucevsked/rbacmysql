@@ -19,31 +19,31 @@
 	</select>
 	
 	<select id="getSysOrganizeBySoId" resultType="java.util.Map">
-		select * from sysOrganizeT where soId=#{soId,jdbcType=NVARCHAR}
+		select * from sysOrganizeT where soId=#{soId,jdbcType=VARCHAR}
 	</select>
 	
 	<insert id="sysOrganizeAdd" >
 	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
 	  insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) 
-	  VALUES(#{myuuid,jdbcType=NVARCHAR},#{soName,jdbcType=NVARCHAR},#{soCode,jdbcType=NVARCHAR},
-	  #{soSort},#{parentSoId,jdbcType=NVARCHAR})
+	  VALUES(#{myuuid,jdbcType=VARCHAR},#{soName,jdbcType=VARCHAR},#{soCode,jdbcType=VARCHAR},
+	  #{soSort},#{parentSoId,jdbcType=VARCHAR})
 	</insert>
 	
 	<update id="sysOrganizeEdit">
-	update sysOrganizeT set soName=#{soName,jdbcType=NVARCHAR},soCode=#{soCode,jdbcType=NVARCHAR},
-	soSort=#{soSort},parentSoId=#{parentSoId,jdbcType=NVARCHAR} where soId=#{soId,jdbcType=NVARCHAR} 	 
+	update sysOrganizeT set soName=#{soName,jdbcType=VARCHAR},soCode=#{soCode,jdbcType=VARCHAR},
+	soSort=#{soSort},parentSoId=#{parentSoId,jdbcType=VARCHAR} where soId=#{soId,jdbcType=VARCHAR} 	 
 	</update>
 	
     <sql id="myWhere">
     <where>
 		<if test="soName !=null and soName != '' ">
-		and a1.soName like '%'||#{soName,jdbcType=NVARCHAR}||'%' 
+		and a1.soName like '%'||#{soName,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="soCode !=null and soCode != '' ">
-		and a1.soCode like '%'||#{soCode,jdbcType=NVARCHAR}||'%' 
+		and a1.soCode like '%'||#{soCode,jdbcType=VARCHAR}||'%' 
 		</if>
 		<if test="soName1 !=null and soName1 != '' ">
-		and b1.soName like '%'||#{soName1,jdbcType=NVARCHAR}||'%' 
+		and b1.soName like '%'||#{soName1,jdbcType=VARCHAR}||'%' 
 		</if>
     </where>
     </sql>

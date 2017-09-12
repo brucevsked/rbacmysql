@@ -16,15 +16,15 @@
 	</select>
 	
 	<delete id="sysRoleMenuDelBySrId">
-		delete from sysRoleMenuT where srId=#{srId,jdbcType=NVARCHAR}
+		delete from sysRoleMenuT where srId=#{srId,jdbcType=VARCHAR}
 	</delete>
 	
 	<delete id="sysRoleMenuDelBySmId">
-		delete from sysRoleMenuT where smId=#{smId,jdbcType=NVARCHAR}
+		delete from sysRoleMenuT where smId=#{smId,jdbcType=VARCHAR}
 	</delete>
 	
 	<insert id="sysRoleMenuAdd">
 insert into sysRoleMenuT(srId,smId) 
-VALUES(#{srId,jdbcType=NVARCHAR},#{smId,jdbcType=NVARCHAR}) 
+VALUES(#{srId,jdbcType=VARCHAR},#{smId,jdbcType=VARCHAR}) 
 	</insert>
 </mapper>
