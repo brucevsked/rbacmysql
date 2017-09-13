@@ -56,5 +56,9 @@ public class SysDictionaryTypeDaoTest extends TestMyBatis{
 		int effectLine=sysDictionaryTypeDao.sysDictionaryTypeEdit(m);
 		log.debug(effectLine);
 	}
-
+	
+	@Test
+	public void testA1(){
+		log.info(1);
+	}
 }

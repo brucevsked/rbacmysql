@@ -67,5 +67,10 @@ public class CarrierDaoTest extends TestMyBatis{
 		int effectLine=carrierDao.carrierEdit(m);
 		log.debug(effectLine);
 	}
+	
+	@Test
+	public void testA1(){
+		log.info(1);
+	}
 
 }

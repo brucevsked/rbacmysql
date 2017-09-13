@@ -74,6 +74,9 @@ public class SysRolePermissionDaoTest extends TestMyBatis{
 		log.debug(effectLine);
 	}
 	
-
+	@Test
+	public void testA1(){
+		log.info(1);
+	}
 
 }

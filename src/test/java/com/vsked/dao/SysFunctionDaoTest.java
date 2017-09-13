@@ -74,5 +74,9 @@ public class SysFunctionDaoTest extends TestMyBatis{
 		log.debug(effectLine);
 	}
 	
+	@Test
+	public void testA1(){
+		log.info(1);
+	}
 	
 }

@@ -55,7 +55,7 @@ public class TestMyBatis {
 		logger.info(sysUser);
 	}
 	
-//	@Test
+	@Test
 	public void testA1(){
 		logger.info(1);
 	}

@@ -99,4 +99,9 @@ public class SysUserRoleDaoTest extends TestMyBatis{
 		
 	}
 
+	@Test
+	public void testA1(){
+		log.info(1);
+	}
+	
 }
