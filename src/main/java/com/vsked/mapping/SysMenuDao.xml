@@ -42,16 +42,16 @@ select * from sysMenuT where smId in(
     <sql id="myWhere">
     <where>
 		<if test="smName !=null and smName != '' ">
-		and a1.smName like '%'||#{smName,jdbcType=VARCHAR}||'%' 
+		and a1.smName like concat('%',#{smName,jdbcType=VARCHAR},'%') 
 		</if>
 		<if test="smHref !=null and smHref != '' ">
-		and a1.smHref like '%'||#{smHref,jdbcType=VARCHAR}||'%' 
+		and a1.smHref like concat('%',#{smHref,jdbcType=VARCHAR},'%') 
 		</if>
 		<if test="smClick !=null and smClick != '' ">
-		and a1.smClick like '%'||#{smClick,jdbcType=VARCHAR}||'%' 
+		and a1.smClick like concat('%',#{smClick,jdbcType=VARCHAR},'%') 
 		</if>
 		<if test="smName1 !=null and smName1 != '' ">
-		and b1.smName like '%'||#{smName1,jdbcType=VARCHAR}||'%' 
+		and b1.smName like concat('%',#{smName1,jdbcType=VARCHAR},'%') 
 		</if>
     </where>
     </sql>

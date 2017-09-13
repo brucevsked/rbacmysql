@@ -34,7 +34,7 @@
 	<sql id="myWhere">
 		<where>
 			<if test="srName !=null and srName != '' ">
-				and srName like  '%'||#{srName,jdbcType=VARCHAR}||'%' 
+				and srName like  concat('%',#{srName,jdbcType=VARCHAR},'%') 
 			</if>
 		</where>
 	</sql>

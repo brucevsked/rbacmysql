@@ -84,10 +84,10 @@
 				and sfId = #{sfId,jdbcType=VARCHAR}
 			</if>
 			<if test="sfValue != null and sfValue != ''">
-				and sfValue like '%'||#{sfValue,jdbcType=VARCHAR}||'%' 
+				and sfValue like concat('%',#{sfValue,jdbcType=VARCHAR},'%') 
 			</if>
 			<if test="spNick != null and spNick != ''">
-				and spNick like '%'||#{spNick,jdbcType=VARCHAR}||'%' 
+				and spNick like concat('%',#{spNick,jdbcType=VARCHAR},'%') 
 			</if>
 		</where>
 	</sql>

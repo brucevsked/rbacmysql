@@ -30,7 +30,7 @@
 	<sql id="myWhere">
 		<where>
 			<if test="sdtName !=null and sdtName != '' ">
-				and sdtName like  '%'||#{sdtName,jdbcType=VARCHAR}||'%' 
+				and sdtName like  concat('%',#{sdtName,jdbcType=VARCHAR},'%') 
 			</if>
 		</where>
 	</sql>

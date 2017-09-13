@@ -35,13 +35,13 @@
     <sql id="myWhere">
     <where>
 		<if test="carrierName !=null and carrierName != '' ">
-		and carrierName like '%'||#{carrierName,jdbcType=VARCHAR}||'%' 
+		and carrierName like concat('%',#{carrierName,jdbcType=VARCHAR},'%') 
 		</if>
 		<if test="carrierNick !=null and carrierNick != '' ">
-		and carrierNick like '%'||#{carrierNick,jdbcType=VARCHAR}||'%' 
+		and carrierNick like concat('%',#{carrierNick,jdbcType=VARCHAR},'%') 
 		</if>
 		<if test="carrierShortName !=null and carrierShortName != '' ">
-		and carrierShortName like '%'||#{carrierShortName,jdbcType=VARCHAR}||'%' 
+		and carrierShortName like concat('%',#{carrierShortName,jdbcType=VARCHAR},'%') 
 		</if>
     </where>
     </sql>

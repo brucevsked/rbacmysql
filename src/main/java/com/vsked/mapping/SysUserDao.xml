@@ -42,10 +42,10 @@
     <sql id="myWhere">
     <where>
 		<if test="suName !=null and suName != '' ">
-		and suName like '%'||#{suName,jdbcType=VARCHAR}||'%' 
+		and suName like concat('%',#{suName,jdbcType=VARCHAR},'%') 
 		</if>
 		<if test="suNick !=null and suNick != '' ">
-		and suNick like '%'||#{suNick,jdbcType=VARCHAR}||'%' 
+		and suNick like concat('%',#{suNick,jdbcType=VARCHAR},'%') 
 		</if>
     </where>
     </sql>

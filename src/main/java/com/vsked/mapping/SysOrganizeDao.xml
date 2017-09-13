@@ -37,13 +37,13 @@
     <sql id="myWhere">
     <where>
 		<if test="soName !=null and soName != '' ">
-		and a1.soName like '%'||#{soName,jdbcType=VARCHAR}||'%' 
+		and a1.soName like concat('%',#{soName,jdbcType=VARCHAR},'%') 
 		</if>
 		<if test="soCode !=null and soCode != '' ">
-		and a1.soCode like '%'||#{soCode,jdbcType=VARCHAR}||'%' 
+		and a1.soCode like concat('%',#{soCode,jdbcType=VARCHAR},'%') 
 		</if>
 		<if test="soName1 !=null and soName1 != '' ">
-		and b1.soName like '%'||#{soName1,jdbcType=VARCHAR}||'%' 
+		and b1.soName like concat('%',#{soName1,jdbcType=VARCHAR},'%') 
 		</if>
     </where>
     </sql>
