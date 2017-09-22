@@ -194,6 +194,7 @@ insert into sysPermissionT(spId,spName,spNick) VALUES('2000000000000000000000000
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000064','dictionaryEditProc:post'  ,'字典修改处理')  ;
 
 insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000065','roleMenuProc:post'  ,'角色菜单绑定处理')  ;
+insert into sysPermissionT(spId,spName,spNick) VALUES('20000000000000000000000000000066','roleMenuListPage:get'  ,'角色菜单绑定页面')  ;
 
 select * from sysPermissionT;
 /********+*********+*********+*********+*********+*********+*/
@@ -315,6 +316,7 @@ insert into sysRolePermissionT(srId,spId) VALUES('300000000000000000000000000000
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000063') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000064') ;
 insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000065') ;
+insert into sysRolePermissionT(srId,spId) VALUES('30000000000000000000000000000001','20000000000000000000000000000066') ;
 
 
 select * from sysRolePermissionT;
@@ -410,6 +412,7 @@ insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('4000000000000000
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000064','/dictionaryEditPage'            ,'20000000000000000000000000000063',null,'cusperm') ;
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000065','/dictionaryEditProc'            ,'20000000000000000000000000000064',null,'cusperm') ;
 insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000066','/roleMenuProc'                  ,'20000000000000000000000000000065',null,'cusperm') ;
+insert into sysFunctionT(sfId,sfValue,spId,srId,sfType) VALUES('40000000000000000000000000000067','/roleMenuListPage'              ,'20000000000000000000000000000066',null,'cusperm') ;
 
 
 select * from sysFunctionT;

@@ -15,9 +15,9 @@ request.setAttribute("basePath", basePath);
   </head>
   
   <body>
-  <div id="userRoleDiv" title="为菜单[${data.SMNAME }]分配角色" class="easyui-panel" style="width:100%;height:100%;">
+  <div id="userRoleDiv" title="为菜单[${data.smName }]分配角色" class="easyui-panel" style="width:100%;height:100%;">
 <form id="fm" method="post" action="${basePath }roleMenuProc">
-<input type="hidden" id="smId" name="smId" value="${data.SMID }">
+<input type="hidden" id="smId" name="smId" value="${data.smId }">
 <table style="width:100%;height:85%;" border="0.5" cellspacing="0" bordercolor="#95B8E7">
 <tr><td align="center">未拥有角色</td><td align="center">操作选项</td><td align="center">已拥有角色</td></tr>
 <tr><td>
