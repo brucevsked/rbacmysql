@@ -1,5 +1,5 @@
 /**
- * jQuery EasyUI 1.5.2
+ * EasyUI for jQuery 1.5.3
  * 
  * Copyright (c) 2009-2017 www.jeasyui.com. All rights reserved.
  *
@@ -8,7 +8,7 @@
  *
  */
 /**
- * tabs - jQuery EasyUI
+ * tabs - EasyUI for jQuery
  * 
  * Dependencies:
  * 	 panel
@@ -380,7 +380,7 @@
 			iconCls: (options.icon ? options.icon : undefined),
 			onLoad: function(){
 				if (options.onLoad){
-					options.onLoad.call(this, arguments);
+					options.onLoad.apply(this, arguments);
 				}
 				state.options.onLoad.call(container, $(this));
 			},

@@ -1,5 +1,5 @@
 /**
- * jQuery EasyUI 1.5.2
+ * EasyUI for jQuery 1.5.3
  * 
  * Copyright (c) 2009-2017 www.jeasyui.com. All rights reserved.
  *
@@ -8,7 +8,7 @@
  *
  */
 /**
- * draggable - jQuery EasyUI
+ * draggable - EasyUI for jQuery
  * 
  */
 (function($){
@@ -158,6 +158,7 @@
 		var state = $.data(e.data.target, 'draggable');
 		var proxy = state.proxy;
 		var opts = state.options;
+		opts.onEndDrag.call(e.data.target, e);
 		if (opts.revert){
 			if (checkDrop() == true){
 				$(e.data.target).css({
@@ -226,7 +227,7 @@
 							top:e.data.startTop
 						});
 					}
-					$(this).trigger('_drop', [e.data.target]);
+					$(this).triggerHandler('_drop', [e.data.target]);
 					removeProxy();
 					dropped = true;
 					this.entered = false;
@@ -389,6 +390,7 @@
 		onBeforeDrag: function(e){},
 		onStartDrag: function(e){},
 		onDrag: function(e){},
+		onEndDrag: function(e){},
 		onStopDrag: function(e){}
 	};
 	
