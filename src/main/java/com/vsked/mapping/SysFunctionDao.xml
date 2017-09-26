@@ -18,7 +18,7 @@
 	</select>
 
 	<insert id="sysFunctionAdd">
-		<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
+		<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select replace(uuid(), '-', '') as myuuid</selectKey>
 		insert into sysFunctionT
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			sfId,

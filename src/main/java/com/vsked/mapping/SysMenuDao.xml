@@ -27,7 +27,7 @@ select * from sysMenuT where smId in(
 	</select>
 	
 	<insert id="sysMenuAdd" >
-	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
+	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select replace(uuid(), '-', '') as myuuid</selectKey>
 	  insert into sysMenuT(smId,smName,smHref,smClick,smClass,smDataOptions,parentSmId) 
 	  VALUES(#{myuuid,jdbcType=VARCHAR},#{smName,jdbcType=VARCHAR},#{smHref,jdbcType=VARCHAR},
 	  #{smClick,jdbcType=VARCHAR},#{smClass,jdbcType=VARCHAR},#{smDataOptions,jdbcType=VARCHAR},#{parentSmId,jdbcType=VARCHAR})

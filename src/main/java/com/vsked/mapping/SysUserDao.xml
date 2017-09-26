@@ -22,7 +22,7 @@
 	</select>
 	
 	<insert id="sysUserAdd" >
-	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
+	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select replace(uuid(), '-', '') as myuuid</selectKey>
 	  insert into sysUserT(suId,suName,suNick,suPass,suMobile,suLastVisit) 
 	  VALUES(#{myuuid,jdbcType=VARCHAR},#{suName,jdbcType=VARCHAR},#{suNick,jdbcType=VARCHAR},#{suPass,jdbcType=VARCHAR},#{suMobile,jdbcType=VARCHAR},sysdate)
 	</insert>

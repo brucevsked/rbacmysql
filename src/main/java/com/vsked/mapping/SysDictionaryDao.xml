@@ -23,7 +23,7 @@
 	</select>
 	
 	<insert id="sysDictionaryAdd" >
-	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
+	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select replace(uuid(), '-', '') as myuuid</selectKey>
 	  insert into sysDictionaryT(sdId,sdName,sdValue,sdSort,sdtId) 
 	  VALUES(#{myuuid,jdbcType=VARCHAR},#{sdName,jdbcType=VARCHAR},#{sdValue,jdbcType=VARCHAR},
 	  #{sdSort,jdbcType=INTEGER},#{sdtId,jdbcType=VARCHAR})

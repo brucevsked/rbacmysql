@@ -19,7 +19,7 @@
 	</select>
 	
 	<insert id="sysRoleAdd" >
-	  <selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey> 
+	  <selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select replace(uuid(), '-', '') as myuuid</selectKey> 
 	  insert into sysRoleT(srId,srName) VALUES(#{myuuid,jdbcType=VARCHAR},#{srName,jdbcType=VARCHAR})
 	</insert>
 	

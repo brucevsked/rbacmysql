@@ -23,7 +23,7 @@
 	</select>
 	
 	<insert id="sysOrganizeAdd" >
-	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
+	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select replace(uuid(), '-', '') as myuuid</selectKey>
 	  insert into sysOrganizeT(soId,soName,soCode,soSort,parentSoId) 
 	  VALUES(#{myuuid,jdbcType=VARCHAR},#{soName,jdbcType=VARCHAR},#{soCode,jdbcType=VARCHAR},
 	  #{soSort},#{parentSoId,jdbcType=VARCHAR})

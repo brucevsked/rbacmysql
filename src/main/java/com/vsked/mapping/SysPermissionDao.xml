@@ -19,7 +19,7 @@
 	</select>
 	
 	<insert id="sysPermissionAdd" >
-	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey>
+	<selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select replace(uuid(), '-', '') as myuuid</selectKey>
 	  insert into sysPermissionT(spId,spName,spNick) 
 	  VALUES(#{myuuid,jdbcType=VARCHAR},#{spName,jdbcType=VARCHAR},#{spNick,jdbcType=VARCHAR})
 	</insert>

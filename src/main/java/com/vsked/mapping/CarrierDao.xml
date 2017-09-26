@@ -19,7 +19,7 @@
 	</select>
 
 	<insert id="carrierAdd" >
-	  <selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select rawtohex(sys_guid()) as "myuuid" from dual</selectKey> 
+	  <selectKey keyProperty="myuuid" resultType="String" order="BEFORE">select replace(uuid(), '-', '') as myuuid</selectKey> 
 	  insert into carrierT(carrierId,carrierName,carrierNick,carrierShortName,officialWebSite,hotline) 
 	  values(#{myuuid,jdbcType=VARCHAR},#{carrierName,jdbcType=VARCHAR},#{carrierNick,jdbcType=VARCHAR},
 	  #{carrierShortName,jdbcType=VARCHAR},#{officialWebSite,jdbcType=VARCHAR},#{hotline,jdbcType=VARCHAR}) 
